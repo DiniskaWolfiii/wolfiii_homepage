@@ -1,5 +1,6 @@
 ---
 import background from '../assets/background.svg';
+import Footer from '../components/Footer.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -14,6 +15,7 @@ import background from '../assets/background.svg';
 	<body>
 		<img id="background" src={background.src} alt="" fetchpriority="high" />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -25,12 +27,18 @@ import background from '../assets/background.svg';
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		z-index: -1;
 	}
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
 	}
 
 	:global(*),

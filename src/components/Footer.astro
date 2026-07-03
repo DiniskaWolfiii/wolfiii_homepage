@@ -1,0 +1,36 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer>
+    <hr />
+    <p>Made with pure hatred by <a href="https://github.com/diniskawolfiii">wolfiii</a> &copy; {currentYear}</p>
+</footer>
+
+<style>
+    footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 1rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.2s;
+    }
+
+    a:hover {
+        opacity: 0.6;
+    }
+
+</style>
