@@ -4,6 +4,12 @@ import twitterIcon from '../assets/icons/twitter.svg?raw';
 import githubIcon from '../assets/icons/github.svg?raw';
 import discordIcon from '../assets/icons/discord.svg?raw';
 import instagramIcon from '../assets/icons/instagram.svg?raw';
+import furtrackIcon from '../assets/icons/furtrack.png';
+import telegramIcon from '../assets/icons/telegram.svg?raw';
+import furaffinityIcon from '../assets/icons/furaffinity.png';
+import artIcon from '../assets/icons/art.svg?raw'
+import aboutmeIcon from '../assets/icons/aboutme.png';
+import folderIcon from './../assets/icons/folder.png'
 ---
 
 <div id="container">
@@ -13,98 +19,20 @@ import instagramIcon from '../assets/icons/instagram.svg?raw';
 			<h1>Awoo! I'm Wolfiii! 👋</h1>
 			<p id="subtitle">Your local loud comfort dragon which provides warmth and occacional dad jokes ^^</p>
 			<div id="links">
-				<a class="button" href="https://x.com/diniskawolfiii"><Fragment set:html={twitterIcon} />Twitter</a>
-				<a class="button" href="https://github.com/diniskawolfiii"><Fragment set:html={githubIcon} />GitHub</a>
-				<a class="button" href="https://discord.com/users/327880195476422656"><Fragment set:html={discordIcon} />Discord</a>
-				<a class="button" href="https://instagram.com/wolfiii.fur"><Fragment set:html={instagramIcon} />Instagram</a>
+				<a class="button" href="https://x.com/diniskawolfiii" target="_blank" rel="noopener noreferrer"><Fragment set:html={twitterIcon} />Twitter</a>
+				<a class="button" href="https://github.com/diniskawolfiii" target="_blank" rel="noopener noreferrer"><Fragment set:html={githubIcon} />GitHub</a>
+				<a class="button" href="https://discord.com/users/327880195476422656" target="_blank" rel="noopener noreferrer"><Fragment set:html={discordIcon} />Discord</a>
+				<a class="button" href="https://instagram.com/wolfiii.fur" target="_blank" rel="noopener noreferrer"><Fragment set:html={instagramIcon} />Instagram</a>
+				<a class="button" href="https://furtrack.com/wolfiii" target="_blank" rel="noopener noreferrer"><img class="icon" src={furtrackIcon.src} />Furtrack</a>
+				<a class="button" href="https://t.me/diniskawolfiii" target="_blank" rel="noopener noreferrer"><Fragment set:html={telegramIcon} />Telegram</a>
+				<a class="button" href="https://www.furaffinity.net/user/diniskawolfiii" target="_blank" rel="noopener noreferrer"><img class="icon" src={furaffinityIcon.src} />Furaffinity</a>
+			</div>
+			<hr class="divider" />
+			<div id="links">
+				<a class="button" href="showcase"><Fragment set:html={artIcon}/>Art showcase</a>
+				<a class="button" href="aboutme"><img class="icon" src={aboutmeIcon.src} />About me</a>
+				<a class="button" href="stuff"><img class="icon" src={folderIcon.src} />Some stuff</a>
 			</div>
 		</div>
 	</main>
 </div>
-
-<style>
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		flex: 1;
-		min-height: 0;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	#card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-		max-width: 520px;
-		padding: 40px 32px;
-		border-radius: 24px;
-		background: rgba(20, 22, 27, 0.85);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-		backdrop-filter: blur(20px);
-		text-align: center;
-		color: white;
-	}
-
-	#avatar {
-		width: 120px;
-		height: 120px;
-		border-radius: 50%;
-		object-fit: cover;
-		border: 3px solid rgba(255, 255, 255, 0.15);
-	}
-
-	h1 {
-		font-size: 28px;
-		margin: 20px 0 4px;
-	}
-
-	#subtitle {
-		margin: 0 0 24px;
-		color: rgba(255, 255, 255, 0.65);
-		font-size: 15px;
-	}
-
-	#links {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 12px;
-		width: 100%;
-	}
-
-	.button {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		padding: 10px 20px;
-		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: white;
-		text-decoration: none;
-		font-size: 14px;
-		font-weight: 500;
-		transition:
-			background 0.2s,
-			border-color 0.2s;
-	}
-
-	.button :global(svg) {
-		width: 16px;
-		height: 16px;
-	}
-
-	.button:hover {
-		background: rgba(255, 255, 255, 0.14);
-		border-color: rgba(255, 255, 255, 0.2);
-	}
-</style>
