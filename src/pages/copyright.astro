@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profilePicture from '../assets/profilepicture.png';
+---
+
+<Layout>
+    <div id="container">
+        <main>
+            <div id="card">
+                <img id="avatar" src={profilePicture.src} alt="Profile picture" />
+                <h1>Copyright</h1>
+                <hr class="divider" />
+                <p>
+                    All photographs and images created by me are protected by copyright and remain my intellectual property, unless explicitly stated otherwise.<br /><br />
+                </p>
+                <p>
+                    Private, non-commercial use of these photographs and images is permitted, provided that the content is not altered and appropriate credit is given where applicable. Any form of commercial use, including but not limited to reproduction, redistribution, publication, sale, licensing, or use for advertising or promotional purposes, requires my prior written consent.<br /><br />
+                </p>
+                <p>
+                    This notice applies in particular to photographs and images published by me on my website or on other platforms.<br /><br />
+                </p>
+                <p>
+                    Artworks created by third-party artists are explicitly excluded from this copyright notice. For such works, full copyright remains with the respective artist, and their individual terms and conditions apply.<br /><br />
+                </p>
+                <p>
+                    Unauthorized use may constitute a violation of applicable copyright laws.
+                </p>
+                <hr class="divider" />
+                <p id="contact">Feel free to <a href="mailto:wolfiii@wolfiii.gay">contact me</a> if you have any questions.</p>
+            </div>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    #card p {
+        margin: 0;
+    }
+
+    #contact {
+        white-space: nowrap;
+    }
+
+    #card a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.2s;
+    }
+
+    #card a:hover {
+        opacity: 0.6;
+    }
+</style>

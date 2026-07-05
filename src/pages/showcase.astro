@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profilePicture from '../assets/profilepicture.png';
+import Gallery from '../components/Gallery.astro';
+---
+
+<Layout>
+    <div id="container">
+        <main>
+            <div id="card">
+                <img id="avatar" src={profilePicture.src} alt="Profile picture" />
+                <h1>Art Showcase</h1>
+                <p id="subtitle">Check out the Artworks from me! :3
+                    They are all commissions, artists are mostly linked ^-^
+                </p>
+                <hr class="divider" />
+                <Gallery />
+                <hr class="divider" />
+                <a class="button" href="https://e621.net/posts?tags=dragon+male+rating%3Asafe" target="_blank" rel="noopener noreferrer">Artworks I'm not part of</a>
+            </div>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    #card {
+        width: 90%;
+		max-width: 1700px;
+    }
+</style>

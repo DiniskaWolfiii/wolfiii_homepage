@@ -1,0 +1,125 @@
+---
+import type { ImageMetadata } from 'astro';
+import { artSections } from '../data/artCredits';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'../assets/art/*.{png,jpg,jpeg,webp,gif}',
+	{ eager: true },
+);
+
+function resolveImage(filename: string) {
+	const match = Object.entries(images).find(([path]) => path.endsWith(`/${filename}`));
+	if (!match) throw new Error(`Artwork not found in src/assets/art/: ${filename}`);
+	return match[1].default;
+}
+
+const sections = artSections.filter((section) => section.artworks.length > 0);
+---
+
+{sections.length === 0 ? (
+	<p id="empty">No artworks yet. Add entries in <code>src/data/artCredits.ts</code>.</p>
+) : (
+	sections.map((section, i) => (
+		<section class="art-section">
+			{i > 0 && <hr class="divider" />}
+			<h2>{section.title}</h2>
+			<div class="art-row">
+				{section.artworks.map((art) => {
+					const image = resolveImage(art.filename);
+					return (
+						<figure class="art-item">
+							<button class="art-image-button" type="button" data-lightbox-src={image.src}>
+								<img src={image.src} alt={art.title} loading="lazy" />
+							</button>
+							<figcaption>
+								<p class="art-title">{art.title}</p>
+								{art.note && <p class="art-note">{art.note}</p>}
+								{art.credits?.map((credit) => (
+									<p class="art-credit">
+										{credit.url ? (
+											<a href={credit.url} target="_blank" rel="noopener noreferrer">{credit.name}</a>
+										) : (
+											credit.name
+										)}
+									</p>
+								))}
+							</figcaption>
+						</figure>
+					);
+				})}
+			</div>
+		</section>
+	))
+)}
+
+<style>
+	#empty {
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 15px;
+	}
+
+	.art-section {
+		width: 100%;
+	}
+
+	.art-section h2 {
+		font-size: 22px;
+		margin: 24px 0 4px;
+		text-align: center;
+	}
+
+	.art-row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 24px;
+		margin-top: 16px;
+	}
+
+	.art-item {
+		margin: 0;
+		max-width: 420px;
+		text-align: center;
+	}
+
+	.art-image-button {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: pointer;
+	}
+
+	.art-image-button img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 12px;
+	}
+
+	figcaption {
+		margin-top: 8px;
+		color: rgba(255, 255, 255, 0.85);
+		font-size: 14px;
+	}
+
+	.art-title {
+		margin: 0;
+	}
+
+	.art-note {
+		margin: 2px 0 0;
+		color: rgba(255, 255, 255, 0.55);
+		font-size: 13px;
+	}
+
+	.art-credit {
+		margin: 2px 0 0;
+		font-size: 13px;
+	}
+
+	.art-credit a {
+		color: white;
+	}
+</style>

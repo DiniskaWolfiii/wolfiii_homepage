@@ -1,0 +1,19 @@
+---
+import Layout from './../layouts/Layout.astro'
+import profilePicture from '../assets/profilepicture.png';
+import websiteVideo from '../assets/video01.mp4';
+---
+
+<Layout>
+    <div id="container">
+        <main>
+            <div id="card">
+                <img id="avatar" src={profilePicture.src} alt="Profile picture" />
+                <h1>Some funny stuff</h1>
+                <hr class="divider" />
+                <button class="button" type="button" data-lightbox-src={websiteVideo} data-lightbox-type="video">Website</button>
+                <a class="button" href="/copyright">Copyright</a>
+            </div>
+        </main>
+    </div>
+</Layout>
