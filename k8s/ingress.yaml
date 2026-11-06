@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wolfiii-homepage
+  namespace: wolfiii-homepage
+  labels:
+    app.kubernetes.io/name: wolfiii-homepage
+spec:
+  rules:
+    - host: wolfiii.gay
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wolfiii-homepage
+                port:
+                  name: http
+    - host: www.wolfiii.gay
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wolfiii-homepage
+                port:
+                  name: http
+
