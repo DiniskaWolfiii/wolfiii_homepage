@@ -27,7 +27,7 @@ spec:
         runAsGroup: 101
       containers:
         - name: web
-          image: ghcr.io/diniskawolfiii/wolfiii_homepage:latest
+          image: ghcr.io/diniskawolfiii/wolfiii_homepage:61000c3
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
