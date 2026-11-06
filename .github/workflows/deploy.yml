@@ -3,7 +3,7 @@ name: Build Package & Update K8s Manifest
 on:
   push:
     branches:
-      - release
+      - main
     paths-ignore:
       - 'k8s/**'
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: release
+          ref: main
 
       - name: Extract short SHA
         id: vars
@@ -61,6 +61,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore(k8s): update image tag to ${{ steps.vars.outputs.short_sha }} [skip ci]"
-            git pull --rebase origin release
-            git push origin HEAD:release
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
